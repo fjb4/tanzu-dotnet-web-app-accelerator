@@ -1,6 +1,6 @@
 accelerator:
-  displayName: Tanzu Dotnet Web App
-  description: A sample Spring Boot web application built with Tanzu supply-chain
+  displayName: Tanzu .NET Web App
+  description: A sample .NET web application built with Tanzu supply-chain
   iconUrl: https://github.com/sample-accelerators/icons/raw/master/icon-boot.png
   tags:
   - dotnet

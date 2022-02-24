@@ -14,4 +14,4 @@ spec:
     git:
       url: https://github.com/fjb4/tanzu-dotnet-web-app
       ref:
-        branch: main
+        branch: master
