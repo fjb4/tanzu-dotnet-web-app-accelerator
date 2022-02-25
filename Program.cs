@@ -1,7 +1,12 @@
+using Steeltoe.Management.Endpoint;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add Steeltoe Management Endpoints
+builder.Services.AddAllActuators();
 
 var app = builder.Build();
 
@@ -10,6 +15,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -19,5 +25,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapAllActuators(conventionBuilder => { });
 
 app.Run();
