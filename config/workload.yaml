@@ -5,8 +5,9 @@ metadata:
   labels:
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/part-of: tanzu-dotnet-web-app
-    tanzu.app.live.view: "true"
-    tanzu.app.live.view.application.flavours: "steeltoe"
+    tanzu.app.live.view: true
+    tanzu.app.live.view.application.flavours: steeltoe
+    tanzu.app.live.view.application.name: tanzu-dotnet-web-app
 spec:
   params:
     - name: annotations
