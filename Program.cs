@@ -1,3 +1,4 @@
+using Steeltoe.Extensions.Logging;
 using Steeltoe.Management.Endpoint;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,9 @@ builder.Services.AddControllersWithViews();
 
 // Add Steeltoe Management Endpoints
 builder.Services.AddAllActuators();
+
+// Add Steeltoe Dynamic Logging
+builder.Logging.AddDynamicConsole();
 
 var app = builder.Build();
 
