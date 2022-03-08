@@ -3,42 +3,53 @@ accelerator:
   description: A sample .NET web application built with Tanzu supply-chain
   iconUrl: https://github.com/sample-accelerators/icons/raw/master/icon-boot.png
   tags:
-  - dotnet
-  - web
-  - tanzu
+    - dotnet
+    - web
+    - tanzu
 
   options:
-  - name: repositoryPrefix
-    inputType: text
-    label: Prefix for the container image repository
-    defaultValue: dev.local
-    required: true
+    - name: repositoryPrefix
+      inputType: text
+      label: Prefix for the container image repository
+      defaultValue: dev.local
+      required: true
+    - name: welcomeMessage
+      inputType: text
+      label: Welcome message
+      defaultValue: "Welcome!"
+      required: true
 
 engine:
   merge:
-  - include: [ "**/*" ]
-    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml" ]
-  - include: [ "config/*.yaml", "Tiltfile" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: tanzu-java-web-app
-        with: "#artifactId"
-    - type: ReplaceText
-      substitutions:
-      - text: your-registry.io/project
-        with: "#repositoryPrefix"
-  - include: [ "README.md" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: tanzu-java-web-app
-        with: "#artifactId"
-  - include: [ "catalog/*.yaml" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: tanzu-java-web-app
-        with: "#artifactId"
-    - type: RewritePath
-      rewriteTo: "#filename"
+    - include: ["**/*"]
+      exclude: ["config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml"]
+    - include: ["config/*.yaml", "Tiltfile"]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: tanzu-java-web-app
+              with: "#artifactId"
+        - type: ReplaceText
+          substitutions:
+            - text: your-registry.io/project
+              with: "#repositoryPrefix"
+    - include: ["README.md"]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: tanzu-java-web-app
+              with: "#artifactId"
+    - include: ["catalog/*.yaml"]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: tanzu-java-web-app
+              with: "#artifactId"
+        - type: RewritePath
+          rewriteTo: "#filename"
+    - include: ["src/Views/Home/Index.cshtml"]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: "Welcome!"
+              with: "#welcomeMessage"
