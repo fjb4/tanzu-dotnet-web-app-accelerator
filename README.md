@@ -24,3 +24,10 @@ tanzu apps workload create tanzu-dotnet-web-app \
 
 tanzu apps workload create tanzu-dotnet-web-app -f ./config/workload.yaml --yes
 ```
+
+
+
+## Register Application Accelerator Template
+
+`tanzu accelerator create tanzu-dotnet-web-app --git-repository https://github.com/fjb4/tanzu-dotnet-web-app --git-branch master`
+
