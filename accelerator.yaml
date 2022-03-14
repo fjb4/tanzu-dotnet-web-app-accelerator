@@ -40,7 +40,7 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: tanzu-java-web-app
+            - text: tanzu-dotnet-web-app
               with: "#artifactId"
         - type: ReplaceText
           substitutions:
@@ -50,13 +50,13 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: tanzu-java-web-app
+            - text: tanzu-dotnet-web-app
               with: "#artifactId"
     - include: ["catalog/*.yaml"]
       chain:
         - type: ReplaceText
           substitutions:
-            - text: tanzu-java-web-app
+            - text: tanzu-dotnet-web-app
               with: "#artifactId"
         - type: RewritePath
           rewriteTo: "#filename"
