@@ -4,6 +4,7 @@ accelerator:
   iconUrl: https://github.com/sample-accelerators/icons/raw/master/icon-boot.png
   tags:
     - dotnet
+    - C#
     - web
     - tanzu
 
