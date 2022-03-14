@@ -19,6 +19,18 @@ accelerator:
       label: Welcome message
       defaultValue: "Greetings from .NET + Tanzu!"
       required: true
+    - name: database
+      label: Database
+      dataType: string
+      description: The type of database to use
+      inputType: radio
+      defaultValue: postgresql
+      required: true
+      choices:
+        - value: postgresql
+          text: PostgreSQL
+        - value: mysql
+          text: MySQL
 
 engine:
   merge:
